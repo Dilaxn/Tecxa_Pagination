@@ -60,6 +60,23 @@ function ProductList() {
         fetchCategories();
     }, [_category, page]);
 
+    useEffect(() => {
+        const handleUrlChange = () => {
+            const currentPageUrl = window.location.href;
+            const urlParams = new URLSearchParams(currentPageUrl.split("?")[1]);
+            const newPage = urlParams.get("page");
+            console.log(newPage);
+            setPage(newPage);
+        };
+
+        window.addEventListener('popstate', handleUrlChange);
+
+        handleUrlChange();
+
+        return () => {
+            window.removeEventListener('popstate', handleUrlChange);
+        };
+    }, []);
 
     //handle pagination
     const handleChange = async (event, value) => {
