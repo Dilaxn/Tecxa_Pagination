@@ -4,7 +4,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import CloseIcon from '@mui/icons-material/Close';
 import Rating from '@mui/material/Rating';
-import {Tooltip} from "@material-ui/core";
 import styled from 'styled-components';
 
 const StyledProductCard = styled(Grid)`
@@ -71,11 +70,11 @@ const ProductCard = ({ product }) => {
                     <StyledTitle variant="h6">
                         {product.title}
                     </StyledTitle>
-                    <Tooltip title={product.description}>
+                   
                     <StyledDescription variant="body2">
                         {product.description.length > 75 ? product.description.slice(0, 75) + '...' : product.description}
                     </StyledDescription>
-                    </Tooltip>
+               
                     {/* <hr/> */}
 
                     <Typography variant="h6" style={{ fontWeight: 'bold', textAlign: 'center',  marginBottom: '5px', color:'rgb(255 89 0)', fontSize:'x-large' }}>
